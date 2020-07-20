@@ -4,6 +4,12 @@
     <% @dogs.each do |dog| %>
     <li>
     <a href="<%= dog_url(dog) %>"><%= dog.name %></a>
+
+    <form action="<%= dog_url(dog) %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+
+    <input type="submit" value="Delete Dog">
+    </form>
     </li>
     <% end %>
 </ul>
