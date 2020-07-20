@@ -12,8 +12,10 @@ class ToysController < ApplicationController
     end
 
     def create
+        #POST /dogs/:dog_id/toys
+        #POST /toys
         toy = Toy.new(self.toy_params)
-    
+
         if toy.save
             render json: toy
         else
@@ -22,6 +24,7 @@ class ToysController < ApplicationController
     end
 
     def destroy
+        #toys/:id
         toy = Toy.find(params[:id])
         toy.destroy
         render json: toy
@@ -38,9 +41,9 @@ class ToysController < ApplicationController
         end
     end
 
-    private
+    protected
     def toy_params
-        self.params[:toy].permit(:name)
+        self.params[:toy].permit(:dog_id, :name)
     end
 
 end

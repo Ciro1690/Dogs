@@ -1,0 +1,12 @@
+<h1><%= @dog.name %></h1>
+
+<pre>
+<%= @dog.to_json %></pre>
+
+<ul>
+    <% @dog.toys.each do |toy| %>
+    <li><%= toy.name %></li>
+    <% end %>
+</ul>
+
+<a href="<%= dogs_url %>">Index</a>
